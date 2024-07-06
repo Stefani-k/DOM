@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2; 
+            color: #333; 
+            text-align: left; 
+            margin: 0;
+            padding: 20px;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #ff66b2; 
+            border: none;
+            border-radius: 5px;
+            
+        }
+
+        button:hover {
+            background-color: #ff3399; 
+        }
+        .highlight {
+            background-color: rgb(83, 249, 102);
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+        .clicked {
+            pointer-events: none; 
+       }
+    </style>
+</head>
+<body>
+    <h3>שאלה 1</h3>
+    <p id="text">This is a sample paragraph.</p>
+    <input type="text" id="classInput" placeholder="Enter class name">
+    <button onclick="addClass()">Add Class</button>
+
+    <script>
+        function addClass() {
+            let paragraph = document.getElementById("text");
+            let className = document.getElementById("classInput").value;
+            paragraph.classList.add(className);
+            document.getElementById("classInput").value;
+        }
+    </script>
+
+    <h3>שאלה 2</h3>
+<section>
+    <p id="para1" class="visible">This is the first paragraph</p>
+    <button onclick="toggleVisibility('para1')">Toggle First Paragraph</button>
+    
+    <p id="para2" class="hidden">This is the second paragraph</p>
+    <button onclick="toggleVisibility('para2')">Toggle Second Paragraph</button>
+    
+    <p id="para3" class="hidden">This is the third paragraph</p>
+    <button onclick="toggleVisibility('para3')">Toggle Third Paragraph</button>
+<br>
+<br>
+<h3>שאלה 3</h3>
+     <button id="toggleButton" onclick="toggleButtonText(this)">לחץ עליי</button>
+</section>
+
+<script>
+    function toggleVisibility(id) {
+        let element = document.getElementById(id);
+        if (element.classList.contains('visible')) {
+            element.classList.remove('visible');
+            element.classList.add('hidden');
+        } else {
+            element.classList.remove('hidden');
+            element.classList.add('visible');
+        }
+    }
+
+
+    function toggleButtonText(button) {
+    if (button.innerHTML === "לחץ עליי") {
+        button.innerHTML = "נלחץ";
+        button.classList.add('clicked');
+    } else {
+        button.innerHTML = "לחץ עליי";
+        button.classList.remove('clicked');
+    }
+}
+</script>
+</body>
+</html>
